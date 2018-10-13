@@ -27,6 +27,14 @@ class NumberTest extends TestCase
     }
 
     /**
+     * Parse Zero
+     */
+    public function test_parse_zero()
+    {
+        $this->assertSame('0', Number::parse('0'));
+    }
+
+    /**
      * Should trim tailing zero's
      *
      * @covers \Xethron\Bignum\Number::cleanup

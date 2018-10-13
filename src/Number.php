@@ -25,7 +25,7 @@ class Number
             $number = self::fromString($number);
         }
 
-        if (empty($number) || preg_match('/[^0-9.\-]/', $number) !== 0) {
+        if ($number === '' || preg_match('/[^0-9.\-]/', $number) !== 0) {
             throw new InvalidNumberException($number);
         }
 
