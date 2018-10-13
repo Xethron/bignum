@@ -159,4 +159,20 @@ class MathTest extends TestCase
         $this->assertSame('1', Math::round('0.9999999999', 5));
         $this->assertSame('-2', Math::round('-1.5'));
     }
+
+    /**
+     * Calculate number to a power
+     *
+     * @covers \Xethron\Bignum\Math::power
+     * @uses \Xethron\Bignum\Number
+     */
+    public function test_calculate_number_to_a_power()
+    {
+        $this->assertSame('1000', Math::power('10', 3));
+        $this->assertSame('-32', Math::power('-2', 5));
+        $this->assertSame('2.28886641', Math::power('1.23', 4));
+        $this->assertSame('2.2889', Math::power('1.23', 4, 4));
+        // TODO: BCMath can't handle fractions as a second parameter.
+        //$this->assertSame('1,233544104071174', Math::power('1.3', '0.8'));
+    }
 }

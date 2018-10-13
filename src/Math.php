@@ -74,9 +74,26 @@ class Math
 
     /**
      * @param string|int|float $leftOperand
+     * @param string|int|float $rightOperand
      * @param int $scale
      *
      * @return string
+     * @throws Exceptions\InvalidNumberException
+     */
+    public static function power($leftOperand, $rightOperand, int $scale = self::SCALE): string
+    {
+        $leftOperand = Number::parse($leftOperand);
+        $rightOperand = Number::parse($rightOperand);
+
+        return self::round(bcpow($leftOperand, $rightOperand, $scale+1), $scale);
+    }
+
+    /**
+     * @param string|int|float $leftOperand
+     * @param int $scale
+     *
+     * @return string
+     * @throws Exceptions\InvalidNumberException
      */
     public static function round($leftOperand, int $scale = 0): string
     {
