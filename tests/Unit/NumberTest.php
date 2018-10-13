@@ -124,7 +124,7 @@ class NumberTest extends TestCase
     }
 
     /**
-     * Throw exceptions for Invalid Numbers
+     * Throw exceptions for Empty Numbers
      *
      * @covers \Xethron\Bignum\Number::parse
      * @covers \Xethron\Bignum\Exceptions\InvalidNumberException
@@ -144,12 +144,12 @@ class NumberTest extends TestCase
     }
 
     /**
-     * Throw exceptions for Invalid Numbers
+     * Throw exceptions for Invalid Scientific Notation
      *
      * @covers \Xethron\Bignum\Number::getScientificNotationParts
      * @covers \Xethron\Bignum\Exceptions\InvalidNumberException
      */
-    public function test_throw_exceptions_for_false_sn()
+    public function test_throw_exceptions_for_invalid_scientific_notation()
     {
         try {
             Number::parse('E');
