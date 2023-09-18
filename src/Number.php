@@ -65,8 +65,9 @@ class Number
             // If the exponent is less than 20, increase the number of decimals
             // to always allow for 20 digits to a maximum of 52 decimal places.
             // The 52 is a limit placed on sprintf
-            if ($parts['exponent'] < 20) {
-                $decimals = min(abs($parts['exponent'] - 20), 52);
+            $exponent = (int) $parts['exponent'];
+            if ($exponent < 20) {
+                $decimals = min(abs($exponent - 20), 52);
             } else {
                 $decimals = 0;
             }
@@ -117,7 +118,7 @@ class Number
     /**
      * @param string $number
      *
-     * @return array
+     * @return array{base: string, exponent: string, scale: int}
      * @throws InvalidScientificNotationException
      */
     private static function getScientificNotationParts(string $number): array

@@ -31,6 +31,9 @@ jobs:
       - name: Install dependencies
         run: composer install --dev --prefer-dist --no-progress
 
+      - name: Run PhpStan
+        run: vendor/bin/phpstan analyse -c phpstan.neon --no-progress --memory-limit=-1
+
       - name: Test with phpunit
         run: vendor/bin/phpunit --configuration=phpunit.xml --coverage-text
 
