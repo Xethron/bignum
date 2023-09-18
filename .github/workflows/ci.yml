@@ -33,3 +33,6 @@ jobs:
 
       - name: Test with phpunit
         run: vendor/bin/phpunit --configuration=phpunit.xml --coverage-text
+
+      - name: Run infection tests
+        run: vendor/bin/infection --threads=4 --min-msi=85 --min-covered-msi=85
