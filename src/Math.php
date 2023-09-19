@@ -97,6 +97,10 @@ class Math
      */
     public static function round($leftOperand, int $scale = 0): string
     {
+        if ($scale < 0) {
+            throw new \InvalidArgumentException('Scale must be a positive integer');
+        }
+
         $leftOperand = Number::parse($leftOperand);
         $rightOperand = '0.'.str_repeat('0', $scale).'5';
 
