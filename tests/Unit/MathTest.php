@@ -46,6 +46,7 @@ class MathTest extends TestCase
         $this->assertSame('30', Math::subtract(50, 20));
         $this->assertSame('100', Math::subtract(20, -80));
         $this->assertSame('-0.1', Math::subtract('0.1', '0.2', 1));
+        $this->assertSame('1', Math::subtract('1', '0.02', 1));
     }
 
     /**
@@ -192,5 +193,14 @@ class MathTest extends TestCase
         $this->assertSame('2.2889', Math::power('1.23', 4, 4));
         // TODO: BCMath can't handle fractions as a second parameter.
         //$this->assertSame('1,233544104071174', Math::power('1.3', '0.8'));
+
+        // Tiny big numbers
+        $this->assertSame(
+            '1000000.20000001',
+            Math::power(
+                '1000.0001',
+                2
+           )
+        );
     }
 }

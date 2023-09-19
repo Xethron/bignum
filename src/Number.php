@@ -67,7 +67,7 @@ class Number
             // The 52 is a limit placed on sprintf
             $exponent = (int) $parts['exponent'];
             if ($exponent < 20) {
-                $decimals = min(abs($exponent - 20), 52);
+                $decimals = min(20 - $exponent, 52);
             } else {
                 $decimals = 0;
             }
