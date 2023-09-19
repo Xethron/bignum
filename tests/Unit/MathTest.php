@@ -161,6 +161,25 @@ class MathTest extends TestCase
     }
 
     /**
+     * Throw exceptions for Invalid Scale
+     *
+     * @covers \Xethron\Bignum\Math::round
+     * @covers \ValueError
+     */
+    public function test_throw_exceptions_for_invalid_scale()
+    {
+        try {
+            Math::round('1.1', -1);
+        } catch (\ValueError $e) {
+            $this->assertSame('str_repeat(): Argument #2 ($times) must be greater than or equal to 0', $e->getMessage());
+
+            return;
+        }
+
+        $this->fail('Expected Exception to be thrown.');
+    }
+
+    /**
      * Calculate number to a power
      *
      * @covers \Xethron\Bignum\Math::power
