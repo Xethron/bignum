@@ -1,6 +1,6 @@
 name: CI
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build-test:
@@ -43,4 +43,4 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Run infection tests
-        run: vendor/bin/infection --threads=4 --min-msi=85 --min-covered-msi=85
+        run: vendor/bin/infection --min-msi=95 --min-covered-msi=95
