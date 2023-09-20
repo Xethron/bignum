@@ -1,4 +1,6 @@
 # Bignum library for PHP
+[![codecov](https://codecov.io/gh/Xethron/bignum/graph/badge.svg?token=77SL86KV17)](https://codecov.io/gh/Xethron/bignum)
+
 Intelligent wrapper for BCMath.
 
 ## Why use this library?
